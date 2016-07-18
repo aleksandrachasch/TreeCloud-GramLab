@@ -57,7 +57,7 @@ public class TreeSVG {
 	c.setSVGDocument((SVGDocument) doc);
 	
 	JFrame f = new JFrame("TreeCloud");
-	f.setSize(500, 500);
+	f.setSize(800, 800);
 	f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	
 	f.getContentPane().add(c);

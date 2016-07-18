@@ -1,6 +1,5 @@
 package tree;
 
-import java.io.IOException;
 import java.util.ArrayList;
 
 import treecloud.EqualAngle;
@@ -14,7 +13,7 @@ import treecloud.EqualAngle;
 
 public class Main {
 	
-	public static void main(String [] args) throws IOException{
+	public static void main(String [] args){
 		
 		TestData test = new TestData();
 		ArrayList<TreeNode> tree = test.getFourthTest();
