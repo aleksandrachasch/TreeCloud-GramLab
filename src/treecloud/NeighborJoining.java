@@ -274,7 +274,10 @@ public class NeighborJoining {
 		allnodes.add(newnode);
 		newnode.setID(allnodes.indexOf(newnode));
 		
-		
+		if(newnode.childnodes.get(0).isLeaf && newnode.childnodes.get(1).isLeaf){
+			newnode.childnodes.get(0).hasSisterLeaf = true;
+			//newnode.childnodes.get(1).hasSisterLeaf = true;
+		}
 		
 	
 		

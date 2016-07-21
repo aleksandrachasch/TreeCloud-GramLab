@@ -16,6 +16,7 @@ public class TreeNode {
 	public ArrayList<Integer> children = new ArrayList<Integer>();
 	public ArrayList<TreeNode> childnodes = new ArrayList<TreeNode>();
 	TreeNode parent;
+	public boolean hasSisterLeaf = false;
 	public double angle;
 	public int descendants;
 	public boolean isLeaf = false;
