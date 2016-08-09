@@ -26,6 +26,8 @@ public class TreeNode {
 	public double endY;
 	public String pathattr;
 	public boolean isRoot = false;
+	public String fontcolor;
+	public String fontsize;
 	
 	public void setName(String n){
 		this.name = n;
