@@ -13,6 +13,38 @@ import treecloud.NeighborJoining;
 
 public class TestData {
 	
+	public static String getTestPath(){
+		//return "C:/Users/SONY/Desktop/GSoC/unitex_proposal/bush_snt";
+		return "C:/Users/SONY/Desktop/Unitex-GramLab-3.1rc-source-distribution/Unitex-GramLab-3.1rc/English/test2/src/Corpus";
+	}
+	
+	public static String getTestUnitexToolPath(){
+		return "C:/Users/SONY/Desktop/Unitex-GramLab-3.1rc-source-distribution/Unitex-GramLab-3.1rc/App/UnitexToolLogger.exe";
+	}
+	public static String getTestIndPath(){
+		return "C:/Users/SONY/Desktop/GSoC/unitex_proposal/bush_snt/concord.ind";
+		//return "C:/Users/SONY/Desktop/Unitex-GramLab-3.1rc-source-distribution/Unitex-GramLab-3.1rc/English/test/src/Corpus/ivanhoe_snt/concord.ind";
+	}
+	
+	public static String getTestAlphabetPath(){
+		return "C:/Users/SONY/Desktop/Unitex-GramLab-3.1rc-source-distribution/Unitex-GramLab-3.1rc/English/test/src/Alphabet.txt";
+	}
+	
+	public static String getTestLanguage(){
+		return "English";
+	}
+	
+	public static int getTestNbOccur(){
+		return 0;
+	}
+	
+	public static boolean getTestRemoveStopWords(){
+		return false;
+	}
+	
+	public static int getTestNbWords(){
+		return 0;
+	}
 	/**
 	 * Get number of leaves in the first tree test
 	 * @return int
@@ -104,7 +136,7 @@ public class TestData {
 	names.add("d");
 	names.add("e");
 	
-	NeighborJoining nj = new NeighborJoining();
+	//NeighborJoining nj = new NeighborJoining();
 	
 //	ArrayList<TreeNode> res = new ArrayList<TreeNode>();
 	for(String s: names){
@@ -112,11 +144,12 @@ public class TestData {
 		n.setName(s);
 		n.setAsLeaf();
 		n.setID(names.indexOf(s));
-		nj.allnodes.add(n);
+		//nj.allnodes.add(n);
 	}
-	nj.computeNJTree(mm, names);
-	return nj.allnodes;
+	//nj.computeNJTree(mm, names);
+	//return nj.allnodes;
 //	return res;
+	return null;
 	}
 	
 	/**
@@ -190,17 +223,18 @@ ArrayList<ArrayList<Double>> dm2 = new ArrayList<ArrayList<Double>>();
 		taxanames2.add("e");
 		taxanames2.add("f");
 		
-		NeighborJoining nj = new NeighborJoining();
+		//NeighborJoining nj = new NeighborJoining();
 		
 		for(String s: taxanames2){
 			TreeNode n = new TreeNode();
 			n.setName(s);
 			n.setAsLeaf();
 			n.setID(taxanames2.indexOf(s));
-			nj.allnodes.add(n);
+			//nj.allnodes.add(n);
 		}
-		nj.computeNJTree(dm2, taxanames2);
-		return nj.allnodes;
+		//nj.computeNJTree(dm2, taxanames2);
+		//return nj.allnodes;
+		return null;
 		}
 	
 	/**
@@ -246,19 +280,19 @@ ArrayList<ArrayList<Double>> dm2 = new ArrayList<ArrayList<Double>>();
 		taxanames3.add("c");
 		taxanames3.add("d");
 		
-		NeighborJoining nj = new NeighborJoining();
+		//NeighborJoining nj = new NeighborJoining();
 		
 		for(String s: taxanames3){
 			TreeNode n = new TreeNode();
 			n.setName(s);
 			n.setAsLeaf();
 			n.setID(taxanames3.indexOf(s));
-			nj.allnodes.add(n);
+			//nj.allnodes.add(n);
 		}
 		
-		nj.computeNJTree(dm3, taxanames3);
-		return nj.allnodes;
-		
+		//nj.computeNJTree(dm3, taxanames3);
+		//return nj.allnodes;
+		return null;
 		}
 	
 	/**
@@ -1262,17 +1296,18 @@ ArrayList<ArrayList<Double>> dm2 = new ArrayList<ArrayList<Double>>();
 		taxas.add("liberating");
 		taxas.add("requirement");
 		
-		NeighborJoining nj = new NeighborJoining();
+		//NeighborJoining nj = new NeighborJoining();
 		
 		for(String s: taxas){
 			TreeNode n = new TreeNode();
 			n.setName(s);
 			n.setAsLeaf();
 			n.setID(taxas.indexOf(s));
-			nj.allnodes.add(n);
+			//nj.allnodes.add(n);
 		}
-		nj.computeNJTree(m, taxas);
-		return nj.allnodes;
+		//nj.computeNJTree(m, taxas);
+		//return nj.allnodes;
+		return null;
 	}
 	
 }
