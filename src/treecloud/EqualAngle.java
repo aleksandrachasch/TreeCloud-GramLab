@@ -48,10 +48,10 @@ public class EqualAngle {
 		 * By default the tree starts from the point (150;150)
 		 */
 		if(node.isRoot){
-			node.startX = 150.0;
-			node.startY = 150.0;
-			node.endX = 150.0;
-			node.endY = 150.0;
+			node.startX = 300.0;
+			node.startY = 300.0;
+			node.endX = 300.0;
+			node.endY = 300.0;
 		}
 		for(TreeNode child: node.childnodes){
 			child.startX = node.endX;
