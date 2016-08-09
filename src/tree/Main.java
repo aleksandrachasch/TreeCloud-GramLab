@@ -1,8 +1,7 @@
 package tree;
 
-import java.util.ArrayList;
+import java.io.IOException;
 
-import treecloud.EqualAngle;
 
 /**
  * Main class of the TreeCloud plugin
@@ -13,18 +12,27 @@ import treecloud.EqualAngle;
 
 public class Main {
 	
-	public static void main(String [] args){
+	public static void main(String [] args) throws IOException, InterruptedException{
 		
-		TestData test = new TestData();
-		ArrayList<TreeNode> tree = test.getFourthTest();
+		Tree t = new Tree();
+		t.setCorpusPath(TestData.getTestPath());
+		t.findFiles(t.corpuspath);
+		t.setStatsOutput(t.concordhtml);
+		t.removestopwords = true;
+		t.setLanguage(TestData.getTestLanguage());
+		t.setAlphabetPath(TestData.getTestAlphabetPath());
+		//t.setMinNbOccur(1);
+		t.setNumberOfTaxa(30);
+		t.setUnitexToolLoggerPath(TestData.getTestUnitexToolPath());
+		t.setStatsCommand();
+		t.colormode = "target";
 		
-		EqualAngle ea = new EqualAngle();
+		t.setDistanceMatrix();
+		System.out.println(t.numberoftaxa);
+		t.performNJ();
+		t.performEqualAngle();
 		
-		ea.doEqualAngle(tree, test.getNtaxaFourth());
-		
-		TreeSVG.drawTreeCloud(tree);
-		
-		
+		t.drawTree();
 	}
 
 }
