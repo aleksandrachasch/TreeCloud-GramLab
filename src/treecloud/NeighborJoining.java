@@ -21,6 +21,9 @@ public class NeighborJoining {
 	
 	public ArrayList<TreeNode> allnodes = new ArrayList<TreeNode>();
 	
+	public NeighborJoining(ArrayList<TreeNode> leaves){
+		this.allnodes = leaves;
+	}
 	
 	/**
 	 * Compute a QMatrix from distance matrix
@@ -38,11 +41,11 @@ public class NeighborJoining {
 		for(int i=0; i<distancematrix.size(); i++){
 			ArrayList<Double> row = new ArrayList<Double>();
 			/*
-			 * fill higher triangle and diagonal with zero
+			 * fill higher triangle and diagonal with extremely high value
 			 */
 			for(int j=0; j<distancematrix.size();j++){
 				if(i<=j){
-					row.add(0.0);}
+					row.add(10000.0);}
 				/*
 				 * calculate Q-value for each distance using special formula
 				 */
@@ -161,13 +164,16 @@ public class NeighborJoining {
 	 */
 	
 	public String computeNJTree(ArrayList<ArrayList<Double>> distancematrix , ArrayList<String> taxanames){
-		
+		//System.out.println("New step...");
+		//System.out.println("Matrix size: " + distancematrix.size());
+		//System.out.println("words: " + taxanames);
 		/**
 		 * If the size of distance matrix is 2 (i.e., only 2 taxa comes from the "parent"
 		 * node) => the tree is fully resolved.
 		 * Stop the algorithm and return the Newick string
 		 */
 		if(distancematrix.size()==2){
+			
 			/*
 			 * At this stage we have distance matrix that looks like
 			 *   |a |b
@@ -228,6 +234,7 @@ public class NeighborJoining {
 		 */
 		int taxaA = getMinQValue(qmatrix)[0];
 		int taxaB = getMinQValue(qmatrix)[1];
+		
 		//System.out.println("Index of the minQValue: " + taxaA + ", " + taxaB);
 		
 		/*
@@ -248,7 +255,8 @@ public class NeighborJoining {
 		TreeNode newnode = new TreeNode();
 		
 		newnode.setName(newtaxa);
-		
+		//System.out.println("taxaA: " + taxanames.get(taxaA));
+		//System.out.println("taxaB: " + taxanames.get(taxaB));
 		for(TreeNode n : allnodes){
 			if(n.name.equals(taxanames.get(taxaA))){
 				newnode.addChild(allnodes.indexOf(n));
@@ -273,7 +281,10 @@ public class NeighborJoining {
 		
 		allnodes.add(newnode);
 		newnode.setID(allnodes.indexOf(newnode));
-		
+		//System.out.println("Nb of children: " + newnode.childnodes.size());
+		//for(TreeNode n : newnode.childnodes){
+		//System.out.println(n.name);}
+		//System.out.println("----------");
 		if(newnode.childnodes.get(0).isLeaf && newnode.childnodes.get(1).isLeaf){
 			newnode.childnodes.get(0).hasSisterLeaf = true;
 			//newnode.childnodes.get(1).hasSisterLeaf = true;
